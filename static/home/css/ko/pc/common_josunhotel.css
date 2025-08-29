@@ -17,7 +17,7 @@
   width: 35px;
   height: 35px;
   margin: 0 auto;
-  background: url(../../../images/ko/pc/common/btn_menu.png) no-repeat -35px 0;
+  background: url(./././images/ko/pc/common/btn_menu.png) no-repeat -35px 0;
   transition: 0.5s;
 }
 .header .btnMenu.menuOn {
@@ -33,8 +33,8 @@
   overflow: hidden;
   width: 128px;
   height: 24px;
-  background: url(../../../images/ko/pc/common/bg_logo_shinsegae02.png)
-    no-repeat 0 0;
+  background: url(./././images/ko/pc/common/bg_logo_shinsegae02.png) no-repeat 0
+    0;
 }
 .header .logo a {
   display: block;
@@ -69,7 +69,7 @@
 }
 .header.gnbOn .gnbUtil .dropdown_list .dropdown_value .btn_opener:after,
 .header.type02 .gnbUtil .dropdown_list .dropdown_value .btn_opener:after {
-  background: url(../../../images/ko/pc/common/ico_dropdown_black_8x4.png)
+  background: url(./././images/ko/pc/common/ico_dropdown_black_8x4.png)
     no-repeat;
 }
 .header.gnbOn .gnbUtil .dropdown_list.active .dropdown_value .btn_opener:after,
@@ -82,7 +82,7 @@
 }
 .header.gnbOn .gnbUtil > ul > li .hotelFind:after,
 .header.type02 .gnbUtil > ul > li .hotelFind:after {
-  background: url(../../../images/ko/pc/common/ico_search_black_11x11.png)
+  background: url(./././images/ko/pc/common/ico_search_black_11x11.png)
     no-repeat 0 0;
 }
 .header.gnbOn .gnbUtil > .btnSC,
@@ -104,14 +104,14 @@
   .header.type02
   .topUtil
   .hotelFind:after {
-  background: url(../../../images/ko/pc/common/ico_search_black_11x11.png)
+  background: url(./././images/ko/pc/common/ico_search_black_11x11.png)
     no-repeat 0 0 !important;
 }
 .header.gnbOn .langArea .dropdown_list .dropdown_value input[type="text"] {
   color: #000;
 }
 .header.gnbOn .langArea .dropdown_list .dropdown_value .btn_opener:after {
-  background: url(../../../images/ko/pc/common/ico_lang_black.png) no-repeat 0 0;
+  background: url(./././images/ko/pc/common/ico_lang_black.png) no-repeat 0 0;
 }
 .header.gnbOn .langArea .dropdown_list .item_list a {
   color: #000;
@@ -201,7 +201,7 @@
   margin-left: 2px;
   width: 11px;
   height: 11px;
-  background: url(../../../images/ko/pc/common/ico_search_black_11x11.png)
+  background: url(./././images/ko/pc/common/ico_search_black_11x11.png)
     no-repeat 0 0;
 }
 
@@ -271,7 +271,7 @@
   margin-top: -4px;
   width: 4px;
   height: 8px;
-  background: url(../../../images/ko/pc/common/ico_lang_black.png) no-repeat 0 0;
+  background: url(./././images/ko/pc/common/ico_lang_black.png) no-repeat 0 0;
 }
 
 .allMenu {
@@ -295,8 +295,8 @@
   right: 13px;
   width: 50px;
   height: 50px;
-  background: url(../../../images/ko/pc/common/btn_close_white_25x25.png)
-    no-repeat 50% 50%;
+  background: url(./././images/ko/pc/common/btn_close_white_25x25.png) no-repeat
+    50% 50%;
   z-index: 999;
 }
 /* .allMenu > .inner::-webkit-scrollbar {width:6px;height:6px;}
@@ -566,7 +566,7 @@
   overflow: hidden;
   width: 130px;
   height: 64px;
-  background: url(../../../images/ko/pc/common/bg_logo_footer.png) no-repeat 0 0;
+  background: url(./././images/ko/pc/common/bg_logo_footer.png) no-repeat 0 0;
 }
 .footer .footArea .logo a {
   display: block;
@@ -622,46 +622,39 @@
 }
 .footer .footArea .hotelList ul > li.grandjosun > a {
   width: 70px;
-  background: url(../../../images/ko/pc/common/logo_grandjosun.png) no-repeat 0
-    0;
+  background: url(./././images/ko/pc/common/logo_grandjosun.png) no-repeat 0 0;
 }
 .footer .footArea .hotelList ul > li.grandjosunjj > a {
   width: 70px;
-  background: url(../../../images/ko/pc/common/logo_grandjosun02.png) no-repeat
-    0 0;
+  background: url(./././images/ko/pc/common/logo_grandjosun02.png) no-repeat 0 0;
 }
 .footer .footArea .hotelList ul > li.lescape > a {
   width: 80px;
-  background: url(../../../images/ko/pc/common/logo_lescape.png) no-repeat 0 0;
+  background: url(./././images/ko/pc/common/logo_lescape.png) no-repeat 0 0;
 }
 .footer .footArea .hotelList ul > li.wchosunseoul > a {
   width: 160px;
-  background: url(../../../images/ko/pc/common/logo_wchosunseoul.png) no-repeat
-    0 0;
+  background: url(./././images/ko/pc/common/logo_wchosunseoul.png) no-repeat 0 0;
 }
 .footer .footArea .hotelList ul > li.wchosunbusan > a {
   width: 160px;
-  background: url(../../../images/ko/pc/common/logo_wchosunbusan.png) no-repeat
-    0 0;
+  background: url(./././images/ko/pc/common/logo_wchosunbusan.png) no-repeat 0 0;
 }
 .footer .footArea .hotelList ul > li.fourpoints > a {
   width: 103px;
-  background: url(../../../images/ko/pc/common/logo_fourpoints.png) no-repeat 0
-    0;
+  background: url(./././images/ko/pc/common/logo_fourpoints.png) no-repeat 0 0;
 }
 .footer .footArea .hotelList ul > li.fourpointsmd > a {
   width: 103px;
-  background: url(../../../images/ko/pc/common/logo_fourpoints02.png) no-repeat
-    0 0;
+  background: url(./././images/ko/pc/common/logo_fourpoints02.png) no-repeat 0 0;
 }
 .footer .footArea .hotelList ul > li.gravity > a {
   width: 90px;
-  background: url(../../../images/ko/pc/common/logo_gravity.png) no-repeat 0 0;
+  background: url(./././images/ko/pc/common/logo_gravity.png) no-repeat 0 0;
 }
 .footer .footArea .hotelList ul > li.josunpalace > a {
   width: 68px;
-  background: url(../../../images/ko/pc/common/logo_josunpalace.png) no-repeat 0
-    0;
+  background: url(./././images/ko/pc/common/logo_josunpalace.png) no-repeat 0 0;
 }
 
 /* 210401 footer sns icon  */
@@ -692,21 +685,20 @@
   cursor: pointer;
 }
 .footer .snsArea > div.icoJosun {
-  background: transparent url("../../../images/ko/pc/common/ico_sns_josun.png")
+  background: transparent url("./././images/ko/pc/common/ico_sns_josun.png")
     center center/100% no-repeat;
 }
 .footer .snsArea > div.icoKakao {
-  background: transparent url("../../../images/ko/pc/common/ico_sns_kakao.png")
+  background: transparent url("./././images/ko/pc/common/ico_sns_kakao.png")
     center center/100% no-repeat;
 }
 .footer .snsArea > div.icoInsta {
-  background: transparent url("../../../images/ko/pc/common/ico_sns_insta.png")
+  background: transparent url("./././images/ko/pc/common/ico_sns_insta.png")
     center center/100% no-repeat;
 }
 .footer .snsArea > div.icoYoutube {
-  background: transparent
-    url("../../../images/ko/pc/common/ico_sns_youtube.png") center center/100%
-    no-repeat;
+  background: transparent url("./././images/ko/pc/common/ico_sns_youtube.png")
+    center center/100% no-repeat;
 }
 /* // 210401 footer sns icon  */
 

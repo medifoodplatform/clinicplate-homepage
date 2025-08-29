@@ -88,9 +88,9 @@ var keycode = $.ui.keyCode = {
 //>>description: Displays a calendar from an input or inline for selecting dates.
 //>>docs: http://api.jqueryui.com/datepicker/
 //>>demos: http://jqueryui.com/datepicker/
-//>>css.structure: ../../themes/base/core.css
-//>>css.structure: ../../themes/base/datepicker.css
-//>>css.theme: ../../themes/base/theme.css
+//>>css.structure: ././themes/base/core.css
+//>>css.structure: ././themes/base/datepicker.css
+//>>css.theme: ././themes/base/theme.css
 
 
 
@@ -3241,7 +3241,7 @@ var _gsScope="undefined"!=typeof module&&module.exports&&"undefined"!=typeof glo
 	/**
 	 * **Get** or **Set** the tweenChanges option value.  
 	 * This only affects scenes with a duration. If `tweenChanges` is `true`, the progress update when scrolling will not be immediate, but instead the animation will smoothly animate to the target state.  
-	 * For a better understanding, try enabling and disabling this option in the [Scene Manipulation Example](../examples/basic/scene_manipulation.html).
+	 * For a better understanding, try enabling and disabling this option in the [Scene Manipulation Example](./examples/basic/scene_manipulation.html).
 	 * @memberof! animation.GSAP#
 	 * @method Scene.tweenChanges
 	 * 
@@ -3330,7 +3330,7 @@ var _gsScope="undefined"!=typeof module&&module.exports&&"undefined"!=typeof glo
 		 * 
 		 * If the scene has a duration, the tween's duration will be projected to the scroll distance of the scene, meaning its progress will be synced to scrollbar movement.  
 		 * For a scene with a duration of `0`, the tween will be triggered when scrolling forward past the scene's trigger position and reversed, when scrolling back.  
-		 * To gain better understanding, check out the [Simple Tweening example](../examples/basic/simple_tweening.html).
+		 * To gain better understanding, check out the [Simple Tweening example](./examples/basic/simple_tweening.html).
 		 *
 		 * Instead of supplying a tween this method can also be used as a shorthand for `TweenMax.to()` (see example below).
 		 * @memberof! animation.GSAP#
