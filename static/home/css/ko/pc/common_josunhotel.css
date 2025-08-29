@@ -130,7 +130,7 @@
 .gnbUtil > ul {
   display: inline-block;
   vertical-align: middle;
-  margin-top: -6px;
+  margin-top: 0;
 }
 .gnbUtil > ul > li {
   display: inline-block;
@@ -142,7 +142,7 @@
 }
 .gnbUtil > ul > li > a {
   color: #000;
-  font: 400 18px notokrL;
+  font: 400 20px notokrL;
 }
 
 .gnbUtil > .resvBtn {
