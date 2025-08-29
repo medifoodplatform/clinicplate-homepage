@@ -125,7 +125,7 @@
 .gnbUtil {
   position: absolute;
   right: 50px;
-  top: 30px;
+  top: 35px;
 }
 .gnbUtil > ul {
   display: inline-block;
@@ -134,8 +134,8 @@
 }
 .gnbUtil > ul > li {
   display: inline-block;
-  vertical-align: middle;
-  margin-left: 20px;
+  vertical-align: bottom;
+  margin-left: 24px;
 }
 .gnbUtil > ul > li:first-child {
   margin-left: 0;
@@ -191,10 +191,10 @@
 .topUtil {
   position: absolute;
   left: 200px;
-  top: 30px;
+  top: 35px;
 }
 .topUtil .hotelFind {
-  font-size: 14px;
+  font-size: 16px;
   color: #000;
 }
 .topUtil .hotelFind:after {
@@ -757,7 +757,6 @@
 .dropdown_list .dropdown_value .btn_opener i {
   float: right;
   position: relative;
-  display: inline-block;
   width: 18px;
   height: 9px;
   overflow: hidden;

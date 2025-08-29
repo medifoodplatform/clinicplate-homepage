@@ -2856,7 +2856,7 @@ table td.lower {
 }
 .toggleInner .terms [class^="listWith"] > li:before {
   top: 2px;
-  top: -1px\0/;
+  top: -1px;
 }
 
 /* 패키지 Layer */
@@ -3313,6 +3313,7 @@ table td.lower {
   }
   body {
     -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   body,
   input,
