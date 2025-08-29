@@ -147,7 +147,7 @@
       function fncChangeLang(changeLang) {
         let currentLang = "ko";
 
-        $(location).attr("href", "/intro.do?locale=" + changeLang);
+        $(location).attr("href", "/?locale=" + changeLang);
       }
     </script>
 
@@ -357,7 +357,7 @@
 
         //로그인 후 이동할 url이 메인인 경우 체크
         function isMainUrl(nextUrl) {
-          if (nextUrl.includes("/intro.do") || nextUrl.includes("/main.do")) {
+          if (nextUrl.includes("/") || nextUrl.includes("/main.do")) {
             return true;
           }
           return false;
@@ -400,7 +400,7 @@
         <!-- header type02 추가 되는 경우 mainArea02, mainArea03, mainArea05  -->
         <div class="headArea">
           <strong class="logo"
-            ><a href="intro.do"
+            ><a href="/"
               >CLINIC PLATE</a
             ></strong
           >

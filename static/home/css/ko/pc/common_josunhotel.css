@@ -566,7 +566,8 @@
   overflow: hidden;
   width: 130px;
   height: 64px;
-  background: url(./././images/ko/pc/common/bg_logo_footer.png) no-repeat 0 0;
+  background: url(./static/home/images/ko/pc/common/bg_logo_footer.png)
+    no-repeat 0 0;
 }
 .footer .footArea .logo a {
   display: block;
