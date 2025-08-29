@@ -149,6 +149,26 @@
 
         $(location).attr("href", "/?locale=" + changeLang);
       }
+
+      // 이미지 로딩 개선
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+          img.addEventListener('error', function() {
+            // 이미지 로드 실패 시 배경색 설정
+            this.style.backgroundColor = '#f5f5f5';
+            this.style.display = 'block';
+            this.style.width = '100%';
+            this.style.height = '300px';
+            this.style.objectFit = 'cover';
+          });
+          
+          img.addEventListener('load', function() {
+            // 이미지 로드 성공 시 스타일 초기화
+            this.style.display = 'block';
+          });
+        });
+      });
     </script>
 
     <!-- 네이버 사이트 연관 채널 Code -->
@@ -447,7 +467,7 @@
 
         <div class="topViewCont">
           <div class="img">
-            <img alt="" src="./revolution/content/img_visual_palaceecff.jpg" />
+            <img alt="클리닉 플레이트 메인 이미지" src="./revolution/content/img_visual_palaceecff.jpg" onerror="this.style.display='none';" />
           </div>
 
           <div class="txtCont">
@@ -500,8 +520,9 @@
               </div>
             </div>
             <img
-              alt=""
+              alt="클리닉 플레이트 소개 이미지"
               src="./revolution/content/1660x970%2026770.jpg"
+              onerror="this.style.display='none';"
             />
           </div>
         </div>
@@ -515,8 +536,9 @@
               <div class="info">
                 <figure class="thum">
                   <img
-                    alt=""
+                    alt="프라이빗 진료 공간"
                     src="./revolution/content/03_signature-experience_01142d.jpg"
+                    onerror="this.style.display='none';"
                   />
                   <figcaption>Private Care Space</figcaption>
                 </figure>
@@ -537,8 +559,9 @@
               <div class="info">
                 <figure class="thum">
                   <img
-                    alt=""
+                    alt="1:1 솔루션"
                     src="./revolution/content/03_signature-experience_023e12.jpg"
+                    onerror="this.style.display='none';"
                   />
                   <figcaption>1:1 Solution</figcaption>
                 </figure>
@@ -558,8 +581,9 @@
               <div class="info">
                 <figure class="thum">
                   <img
-                    alt=""
+                    alt="안식 레스토랑"
                     src="./revolution/content/JPG_575x345%2026f95.jpg"
+                    onerror="this.style.display='none';"
                   />
                   <figcaption>Ansic Restaurant</figcaption>
                 </figure>

@@ -2469,6 +2469,8 @@ html[lang="ko"] .upper {
   min-height: 100%;
   transform: translate(-50%, -50%);
   width: auto;
+  display: block;
+  object-fit: cover;
 }
 .topViewCont .txtCont {
   position: absolute;
@@ -7436,6 +7438,13 @@ input.attendees {
   position: relative;
   margin: 0 0 22px;
   width: 575px;
+}
+
+.brandSignatureList .info figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 .brandSignatureList .info .tit {
   display: block;
