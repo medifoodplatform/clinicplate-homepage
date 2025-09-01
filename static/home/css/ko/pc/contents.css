@@ -1028,7 +1028,7 @@ html[lang="ko"] .upper {
   top: -53px;
   width: 18px;
   height: 18px;
-  background: url(./static/home/images/ko/pc/common/btn_swipe_18x18.png)
+  background: url(../../../images/ko/pc/common/btn_swipe_18x18.png)
     no-repeat;
   z-index: 1;
 }
@@ -7980,7 +7980,7 @@ p.txtGuide02:before {
   margin-top: -33px;
   width: 66px;
   height: 66px;
-  background: url(./static/home/images/ko/pc/common/btn_swipe_66x66.png)
+  background: url(../../../images/ko/pc/common/btn_swipe_66x66.png)
     no-repeat;
   z-index: 2;
 }
