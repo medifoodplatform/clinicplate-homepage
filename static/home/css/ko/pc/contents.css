@@ -1028,7 +1028,8 @@ html[lang="ko"] .upper {
   top: -53px;
   width: 18px;
   height: 18px;
-  background: url(./././images/ko/pc/common/btn_swipe_18x18.png) no-repeat;
+  background: url(./static/home/images/ko/pc/common/btn_swipe_18x18.png)
+    no-repeat;
   z-index: 1;
 }
 .promotion .swipeWrapArea .btnPrev {
@@ -7534,11 +7535,11 @@ input.attendees {
 
 /* Brand(클리닉 플레이트 서울 강남) */
 .brand.palace .brandSlogan > * {
-  color: #625e57;
+  color: #d7b56d;
 }
 .brand.palace .brandSlogan .tit::before,
 .brand.palace .brandSlogan .tit::after {
-  background: #625e57;
+  background: #d7b56d;
 }
 .brand.palace .brandSlogan .tit {
   letter-spacing: -1px;
@@ -7553,7 +7554,7 @@ input.attendees {
   color: #d19dae;
 }
 .brand.palace .brandStory::before {
-  background: #a6a095;
+  background: #d7b56d;
 }
 .brand.palace .brandSignatureList li:nth-of-type(3) {
   margin-top: -322px;
@@ -7979,7 +7980,8 @@ p.txtGuide02:before {
   margin-top: -33px;
   width: 66px;
   height: 66px;
-  background: url(./././images/ko/pc/common/btn_swipe_66x66.png) no-repeat;
+  background: url(./static/home/images/ko/pc/common/btn_swipe_66x66.png)
+    no-repeat;
   z-index: 2;
 }
 .btnPrev {

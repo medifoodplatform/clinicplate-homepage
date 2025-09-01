@@ -1063,7 +1063,8 @@ input::placeholder {
   overflow: hidden;
   width: 12px;
   height: 21px;
-  background: url(./././images/ko/pc/common/btn_swipe_12x21_black.png) no-repeat;
+  background: url(/static/home/images/ko/pc/common/btn_swipe_12x21_black.png)
+    no-repeat;
 }
 .calendarS .prevMonth {
   left: 0;
@@ -1794,7 +1795,8 @@ p.txtReference.type02 {
   margin-top: -22px;
   width: 22px;
   height: 44px;
-  background: url(./././images/ko/pc/common/btn_swipe_22x44.png) no-repeat 0 0;
+  background: url(/static/home/images/ko/pc/common/btn_swipe_22x44.png)
+    no-repeat 0 0;
   z-index: 1;
 }
 .layerPop .gallery.bigBtnType .btnPrev {
@@ -1884,7 +1886,8 @@ p.txtReference.type02 {
   top: 552px;
   width: 12px;
   height: 21px;
-  background: url(./././images/ko/pc/common/btn_swipe_12x21.png) no-repeat;
+  background: url(/static/home/images/ko/pc/common/btn_swipe_12x21.png)
+    no-repeat;
   z-index: 1;
 }
 .layerClear .btnPrev {
@@ -2734,7 +2737,8 @@ table td.lower {
   margin-top: -20px;
   width: 40px;
   height: 40px;
-  background: url(./././images/ko/pc/common/btn_swipe_40x40.png) no-repeat 0 0;
+  background: url(/static/home/images/ko/pc/common/btn_swipe_40x40.png)
+    no-repeat 0 0;
   z-index: 1;
 }
 .swipeWrap.gallery .btnPrev {
