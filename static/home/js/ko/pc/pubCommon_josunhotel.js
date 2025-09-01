@@ -6,7 +6,7 @@ var commonJs_josun = {};
 this.commonJs_josun = commonJs_josun;
 var ANIMATION_EASING = 'easeOutExpo';
 
-$(document).ready(function(){
+$(document).ready(function () {
 })
 
 $(window).on('load', function () {
@@ -21,18 +21,18 @@ $(window).on('load', function () {
 
 
 
- /*********************************************************************************************************
- *  window.onLoad 시 호출
- *********************************************************************************************************/
+/*********************************************************************************************************
+*  window.onLoad 시 호출
+*********************************************************************************************************/
 
- /**
-  * gnb 적용
-  * layout.html
-  * 
-  * @param {Element} btnMenuEl
-  */
-commonJs_josun.setGnb = function(btnMenuEl){
-	if(!btnMenuEl.length){
+/**
+ * gnb 적용
+ * layout.html
+ * 
+ * @param {Element} btnMenuEl
+ */
+commonJs_josun.setGnb = function (btnMenuEl) {
+	if (!btnMenuEl.length) {
 		return;
 	}
 
@@ -47,24 +47,24 @@ commonJs_josun.setGnb = function(btnMenuEl){
 			'height': $(window).outerHeight()
 		}, 500, ANIMATION_EASING)
 	}
-	$.fn.gnbCloseFunc = function(){
+	$.fn.gnbCloseFunc = function () {
 		btnMenuEl.removeClass('menuOn');
 		allMenu.stop().animate({
 			'height': 0
-		},300, 'linear', function(){
+		}, 300, 'linear', function () {
 			allMenu.hide();
 			$('.header').removeClass('gnbOn');
 		})
 	}
 
 	var st = 0;
-	btnMenuEl.off('click.gnb').on('click.gnb', function(){
-		if(!$(this).hasClass('menuOn')){
+	btnMenuEl.off('click.gnb').on('click.gnb', function () {
+		if (!$(this).hasClass('menuOn')) {
 			//open
 			st = $(window).scrollTop();
 			$(this).gnbOpenFunc();
 			commonJs.preventBodyScroll();
-		}else{
+		} else {
 			//close
 			$(this).gnbCloseFunc();
 			commonJs.allowBodyScroll();
@@ -72,7 +72,7 @@ commonJs_josun.setGnb = function(btnMenuEl){
 		}
 	})
 
-	$('.allMenu .btnClose').on('click', function(){
+	$('.allMenu .btnClose').on('click', function () {
 		//close
 		$(this).gnbCloseFunc();
 		commonJs.allowBodyScroll();
@@ -87,9 +87,9 @@ commonJs_josun.setGnb = function(btnMenuEl){
  * HUMA1000M.html
  * 
  */
-commonJs_josun.setMainAreaParallax = function(mainArea){
+commonJs_josun.setMainAreaParallax = function (mainArea) {
 
-	if(!$('[class*=' + mainArea + ']').length){
+	if (!$('[class*=' + mainArea + ']').length) {
 		return;
 	}
 
@@ -98,12 +98,12 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 		commonJs_josun.setMainAreaParallax('mainArea');
 	}, 400);
 
-	$(window).off('resize.mainAreaParallax').on('resize.mainAreaParallax', function(){
+	$(window).off('resize.mainAreaParallax').on('resize.mainAreaParallax', function () {
 		screenResize();
 	})
 
 	var ctlData = $('.container').data('controller');
-	if(ctlData!=undefined){
+	if (ctlData != undefined) {
 		ctlData.destroy(true);
 	}
 
@@ -118,38 +118,38 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 	var revArea = $('.revArea');
 	var mainBannerEl = $('.mainBanner');
 	var deviceCheckEl = $('.deviceCheck');
-	var osMac = navigator.platform.toUpperCase().indexOf('MAC')>=0;
-	
-	ctl.scrollTo = function(newpos, callback){
+	var osMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+
+	ctl.scrollTo = function (newpos, callback) {
 		new TimelineMax({
 			onComplete: callback
 		}).to('html, body', 0.5, { scrollTop: newpos });
 	}
 
-	$('.container').on('preventAnimate', function(){
+	$('.container').on('preventAnimate', function () {
 		isAnimated = true;
 	});
-	$('.container').on('allowAnimate', function(){
+	$('.container').on('allowAnimate', function () {
 		isAnimated = false;
 	});
-	$('.container').on('dimmedOn', function(){
+	$('.container').on('dimmedOn', function () {
 		isDimmed = true;
 	});
-	$('.container').on('dimmedOff', function(){
+	$('.container').on('dimmedOff', function () {
 		isDimmed = false;
 	});
-	
 
-	$('.mainArea01').off('mousewheel DOMMouseScroll').on(' mousewheel DOMMouseScroll', function(e){
+
+	$('.mainArea01').off('mousewheel DOMMouseScroll').on(' mousewheel DOMMouseScroll', function (e) {
 		//.contents02 show
 		var delta = 0;
 		var E = e.originalEvent;
-		if(E.detail){
+		if (E.detail) {
 			delta = E.detail * -40;
-		}else{
+		} else {
 			delta = E.wheelDelta;
 		}
-		if(!scrollFinished  && delta < 0){
+		if (!scrollFinished && delta < 0) {
 			e.stopPropagation();
 			e.preventDefault();
 			return false;
@@ -160,7 +160,7 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 
 		var ofsTop = $(this).offset().top;
 		ofsArray.push(ofsTop);
-		
+
 
 		//창화면 높이가 910(고정) 이상일때 sectionSwiper 적용
 		if ($(window).outerHeight() >= 910) {
@@ -179,7 +179,7 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 			triggerHook: (osMac) ? '0.99' : '0.95',
 		})
 			.on('enter', function () {
-				
+
 				if (isAnimated) {
 					return;
 				}
@@ -188,7 +188,7 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 					$('.contents01').css('z-index', '1');
 					revArea.removeClass('cts02').addClass('cts01');
 
-					if($(window).scrollTop()>200){
+					if ($(window).scrollTop() > 200) {
 						return;
 					}
 					new TimelineMax({
@@ -198,27 +198,27 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 					}).delay(0.3).fromTo($('.contents01 .mainTxt'), 0.7, { opacity: 0 }, { opacity: 1 }, 0)
 						.fromTo(revArea, 0.7, { opacity: 0, y: '+100px' }, { opacity: 1, y: '0px' }, 0);
 
-				}else {
-					if(idx!=0){
+				} else {
+					if (idx != 0) {
 						new TimelineMax({
-							onStart: function(){
+							onStart: function () {
 								/*revArea.removeClass('cts01').addClass('cts02');*/
 								revArea.removeClass('cts01');
-								if(idx == 5){ // 240913 josun t&s 추가로 인한 수정 (idx == 4) -> 5로 변경
+								if (idx == 5) { // 240913 josun t&s 추가로 인한 수정 (idx == 4) -> 5로 변경
 									revArea.addClass('cts02');
 								}
 							}
 						}).fromTo(revArea, 0.5, { opacity: 0, y: '+100px' }, { opacity: 1, y: '0px' });
 					}
 
-					if(!isDimmed){
-						ctl.scrollTo(ofsTop, function(){
+					if (!isDimmed) {
+						ctl.scrollTo(ofsTop, function () {
 							revArea.find('.clearCont.opened .btnClose:visible').each(function () {
 								$(this).trigger('click.setRevArea');
 							})
 						});
 					}
-					
+
 				}
 			})
 			.addTo(ctl);
@@ -230,7 +230,7 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 			triggerHook: (osMac) ? '0.01' : '0.1',
 		})
 			.on('leave', function () {
-				
+
 				$('.contents01 .mainTxt').css({
 					'opacity': 1
 				})
@@ -244,12 +244,12 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 					scrollFinished = true;
 					$('.contents02').css('z-index', 1);
 				}
-				if(!isDimmed){
+				if (!isDimmed) {
 					ctl.scrollTo(ofsArray[(idx - 1 > 0 ? idx - 1 : 0)]);
 				}
 			})
-			.addTo(ctl);	
-			
+			.addTo(ctl);
+
 
 		//indicator 
 		new ScrollMagic.Scene({
@@ -259,42 +259,42 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 		})
 			.on('enter', function () {
 
-				if(isDimmed){
+				if (isDimmed) {
 					return;
 				}
 
-                //2024-09-13 intro 플레이트 t&s section 추가로 인한 수정 작업
-                var headerType02 = [1, 2, 3, 4, 7]; //해당 idx일경우 헤더 클래스 type02적용
-                var headerType03 = [0, 5, 6];  //'' 헤더 클래스 type03적용
-                var indicatorType = [0, 5, 6]; //'' 인디케이터 클래스 type02적용
+				//2024-09-13 intro 플레이트 t&s section 추가로 인한 수정 작업
+				var headerType02 = [1, 2, 3, 4, 7]; //해당 idx일경우 헤더 클래스 type02적용
+				var headerType03 = [0, 5, 6];  //'' 헤더 클래스 type03적용
+				var indicatorType = [0, 5, 6]; //'' 인디케이터 클래스 type02적용
 
 
-				header.removeClass('type02 type03');
+				header.removeSClass('type02 type03');
 				mainIndicator.removeClass('type02');
-				
-				if(idx==0){
-					if(!mainBannerEl.data('topBannerClosed')){
+
+				if (idx == 0) {
+					if (!mainBannerEl.data('topBannerClosed')) {
 						mainBannerEl.trigger('showTopBanner');
 					}
-					if(!deviceCheckEl.data('deviceCheckClosed')){
+					if (!deviceCheckEl.data('deviceCheckClosed')) {
 						deviceCheckEl.trigger('showDeviceCheck');
 					}
 					revArea.removeClass('cts02').addClass('cts01');
-				}else{
+				} else {
 					//2021-05-10 intro 순서 변경 요청으로 인한 수정 작업 -> 240913 josun t&s 추가로 인한 수정 (idx == 4) -> 5로 변경
-					if(idx == 5){
+					if (idx == 5) {
 						revArea.removeClass('cts01').addClass('cts02');
-					}else{
+					} else {
 						revArea.removeClass('cts01 cts02');
 					}
 					mainBannerEl.trigger('hideTopBanner');
 					deviceCheckEl.trigger('hideDeviceCheck');
 				}
 
-				if((headerType02.indexOf(parseInt(idx))!== -1)){
+				if ((headerType02.indexOf(parseInt(idx)) !== -1)) {
 					header.addClass('type02');
 				}
-				if((headerType03.indexOf(parseInt(idx))!== -1)){
+				if ((headerType03.indexOf(parseInt(idx)) !== -1)) {
 					header.addClass('type03');
 				}
 				if ((indicatorType.indexOf(parseInt(idx)) !== -1)) {
@@ -316,7 +316,7 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 			if (isAnimated) {
 				return;
 			}
-			if(!isDimmed){
+			if (!isDimmed) {
 				ctl.scrollTo(ofsArray[ofsArray.length - 1]);
 			}
 
@@ -332,7 +332,7 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 			if (isAnimated) {
 				return;
 			}
-			if(!isDimmed){
+			if (!isDimmed) {
 				ctl.scrollTo(ofsArray[ofsArray.length - 1] + footer.outerHeight());
 			}
 		})
@@ -359,6 +359,6 @@ commonJs_josun.setMainAreaParallax = function(mainArea){
 
 }
 
- /*********************************************************************************************************
- *  참조 함수들
- *********************************************************************************************************/
+/*********************************************************************************************************
+*  참조 함수들
+*********************************************************************************************************/

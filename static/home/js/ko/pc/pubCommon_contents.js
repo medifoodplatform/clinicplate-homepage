@@ -19,7 +19,7 @@ $(document).ready(function () {
     commonJs.setSortWrap('.sortWrap');
     commonJs.setMainBanner('.mainBanner');
     //commonJs.setDeviceCheck($('.deviceCheck'));
-    commonJs.setLangArea('.langArea');
+    commonJs.setLangArea('.langSArea');
 
     // commonJs.setHotelSelectArea('.checkDate .hotelSel');  예약- 호텔선택시 투숙기간 선택 아코디언
     // open. 개발측 요청으로 주석처리. commonJs.initShowHideForm();
@@ -346,10 +346,10 @@ commonJs.initResvCalendar = function (calendarEl) {
         }*/
 
         //강남 [오픈날짜 하드코딩]
-        if(jQuery("#hotlSysCode").length > 0 && jQuery("#hotlSysCode").val() == "JPY") {
+        if (jQuery("#hotlSysCode").length > 0 && jQuery("#hotlSysCode").val() == "JPY") {
 
-            var jpyOpenDate = new Date(2021, 04, 25);
-            if(jpyOpenDate > startDate){
+            var jpyOpenDate = new Date(2021, 4, 25);
+            if (jpyOpenDate > startDate) {
                 startDate = jpyOpenDate;
             }
         }
@@ -855,9 +855,9 @@ commonJs.initPopSingleCalendar = function (calendarEl) {
         ],
         dateFormat: 'yy.mm.dd',
 
-        beforeShow: function (input) {},
-        onClose: function () {},
-        onChangeMonthYear: function () {}
+        beforeShow: function (input) { },
+        onClose: function () { },
+        onChangeMonthYear: function () { }
     });
     $('#ui-datepicker-div').wrap('<div class="datepicker-wrapper"/>');
 }
@@ -895,7 +895,7 @@ commonJs.initPrintBtn = function (node) {
             ? $('.printCont:visible').find('.scrollWrap')
             : $('.printCont:visible');
 
-        printContent.printThis({removeInline: false})
+        printContent.printThis({ removeInline: false })
     })
 
 }
@@ -1395,7 +1395,7 @@ commonJs.initAccordion = function (AccordionEl) {
                             $(itm).removeClass('toggleOn');
                             // accordionText.show();
                             toggleCont
-                                .css({'overflow': 'hidden'})
+                                .css({ 'overflow': 'hidden' })
                                 .stop()
                                 .animate({
                                     height: 0
@@ -1405,8 +1405,8 @@ commonJs.initAccordion = function (AccordionEl) {
                                         .text(GuidanceText[0]);
                                     toggleCont.removeAttr('style');
                                 })
-                           //HUDI3000L.html / HUDI3000M.html - 예약자와 방문자가 다를때
-                           $(itm).children(".clickBtn").find(".type03Chk").prop('checked', false);
+                            //HUDI3000L.html / HUDI3000M.html - 예약자와 방문자가 다를때
+                            $(itm).children(".clickBtn").find(".type03Chk").prop('checked', false);
 
                         } else {
                             $(itm)
@@ -1418,10 +1418,10 @@ commonJs.initAccordion = function (AccordionEl) {
                                 scrollOffset = accordionItm
                                     .offset()
                                     .top + (
-                                    ofsTop[idx - 1] === undefined
-                                        ? 0
-                                        : ofsTop[idx - 1]
-                                ) - headerFixH;
+                                        ofsTop[idx - 1] === undefined
+                                            ? 0
+                                            : ofsTop[idx - 1]
+                                    ) - headerFixH;
                             } else if ($(itm).prev('li').length) {
                                 scrollOffset = accordionItm
                                     .offset()
@@ -1440,21 +1440,21 @@ commonJs.initAccordion = function (AccordionEl) {
                             //show
                             $(itm).addClass('toggleOn');
                             // accordionText.hide();
-                            toggleCont.css({'display': 'block', 'overflow': 'hidden'})
+                            toggleCont.css({ 'display': 'block', 'overflow': 'hidden' })
 
                             if ($(itm).closest('.lCont').length) {
                                 $('.rCont').trigger('setPosition');
                                 $('html, body').animate({
                                     scrollTop: scrollOffset
                                 }, 800, ANIMATION_EASING);
-                            } else if ($(itm).closest('.layerCont').length) {} else if (!$(itm).closest('.floating').length && $(itm).siblings('li').length) {
+                            } else if ($(itm).closest('.layerCont').length) { } else if (!$(itm).closest('.floating').length && $(itm).siblings('li').length) {
                                 $('html, body').animate({
                                     scrollTop: scrollOffset
                                 }, 800, ANIMATION_EASING);
                             }
                             var h = toggleCont.outerHeight();
                             toggleCont
-                                .css({'height': '0'})
+                                .css({ 'height': '0' })
                                 .stop()
                                 .animate({
                                     height: h
@@ -1462,11 +1462,11 @@ commonJs.initAccordion = function (AccordionEl) {
                                     btnToggle
                                         .find('span.hidden')
                                         .text(GuidanceText[1]);
-                                    toggleCont.css({'height': '', 'overflow': ''})
+                                    toggleCont.css({ 'height': '', 'overflow': '' })
                                     $('.comparison').trigger('docHeightChange');
                                 })
                             //HUDI3000L.html / HUDI3000M.html - 예약자와 방문자가 다를때
-                           $(itm).children(".clickBtn").find(".type03Chk").prop('checked', true);
+                            $(itm).children(".clickBtn").find(".type03Chk").prop('checked', true);
                         }
 
                     })
@@ -1481,10 +1481,10 @@ commonJs.initAccordion = function (AccordionEl) {
                         scrollOffset = accordionItm
                             .offset()
                             .top + (
-                            ofsTop[idx - 1] === undefined
-                                ? 0
-                                : ofsTop[idx - 1]
-                        ) - headerFixH;
+                                ofsTop[idx - 1] === undefined
+                                    ? 0
+                                    : ofsTop[idx - 1]
+                            ) - headerFixH;
                     } else if ($(itm).prev('li').length) {
                         scrollOffset = accordionItm
                             .offset()
@@ -1497,19 +1497,19 @@ commonJs.initAccordion = function (AccordionEl) {
 
                     //show
                     $(itm).addClass('toggleOn');
-                    toggleCont.css({'display': 'block', 'overflow': 'hidden'})
+                    toggleCont.css({ 'display': 'block', 'overflow': 'hidden' })
 
                     if ($(itm).closest('.lCont').length) {
                         $('.rCont').trigger('setPosition');
                         $(window).scrollTop(scrollOffset);
-                    } else if ($(itm).closest('.layerCont').length) {} else if (!$(itm).closest('.floating').length && $(itm).siblings('li').length) {
+                    } else if ($(itm).closest('.layerCont').length) { } else if (!$(itm).closest('.floating').length && $(itm).siblings('li').length) {
                         $(window).scrollTop(
                             $(itm).closest('ul').offset().top - $('.header').outerHeight()
                         );
                     }
                     var h = toggleCont.outerHeight();
                     toggleCont
-                        .css({'height': '0'})
+                        .css({ 'height': '0' })
                         .stop()
                         .animate({
                             height: h
@@ -1517,7 +1517,7 @@ commonJs.initAccordion = function (AccordionEl) {
                             btnToggle
                                 .find('span.hidden')
                                 .text(GuidanceText[1]);
-                            toggleCont.css({'height': '', 'overflow': ''})
+                            toggleCont.css({ 'height': '', 'overflow': '' })
                             $('.comparison').trigger('docHeightChange');
                         })
                 })
@@ -1568,7 +1568,7 @@ commonJs.initComparison = function (comparisonEl) {
 
             contIsOpen = true;
             comparisonEl.show();
-            compCont.css({'display': 'block', 'height': compContH});
+            compCont.css({ 'display': 'block', 'height': compContH });
             btnComp.addClass('on');
         }
 
@@ -1578,19 +1578,19 @@ commonJs.initComparison = function (comparisonEl) {
     btnComp.on('click', function (e) {
         if (compCont.is(':visible')) {
             compCont
-                .css({'display': 'block', 'overflow': 'hidden'})
+                .css({ 'display': 'block', 'overflow': 'hidden' })
                 .stop()
                 .animate({
                     'height': 0
                 }, speed, ANIMATION_EASING, function () {
-                    compCont.css({'display': 'none', 'overflow': '', 'height': ''})
+                    compCont.css({ 'display': 'none', 'overflow': '', 'height': '' })
                 })
             btnComp.removeClass('on');
             contIsOpen = false;
         } else {
             //open
             compCont
-                .css({'display': 'block', 'overflow': 'hidden', 'height': '0'})
+                .css({ 'display': 'block', 'overflow': 'hidden', 'height': '0' })
                 .stop()
                 .animate({
                     'height': compContH
@@ -1626,9 +1626,9 @@ commonJs.initComparison = function (comparisonEl) {
         var sb = $(window).scrollTop() + $(window).height();
 
         if (sb <= compOffsetTop) {
-            comparisonEl.css({'position': ''})
+            comparisonEl.css({ 'position': '' })
         } else {
-            comparisonEl.css({'position': 'relative'})
+            comparisonEl.css({ 'position': 'relative' })
         }
     });
 
@@ -1641,12 +1641,12 @@ commonJs.initComparison = function (comparisonEl) {
                 if (sb <= $(document).outerHeight() - footerH) {
                     //close
                     compCont
-                        .css({'overflow': 'hidden'})
+                        .css({ 'overflow': 'hidden' })
                         .stop()
                         .animate({
                             'height': 0
                         }, speed, ANIMATION_EASING, function () {
-                            compCont.css({'display': 'none', 'overflow': '', 'height': ''})
+                            compCont.css({ 'display': 'none', 'overflow': '', 'height': '' })
                         })
                     btnComp.removeClass('on');
                     contIsOpen = false;
@@ -1657,9 +1657,9 @@ commonJs.initComparison = function (comparisonEl) {
                 return;
             }
             if (sb <= compOffsetTop) {
-                comparisonEl.css({'position': ''})
+                comparisonEl.css({ 'position': '' })
             } else {
-                comparisonEl.css({'position': 'relative'})
+                comparisonEl.css({ 'position': 'relative' })
             }
         })
 }
@@ -1706,7 +1706,7 @@ commonJs.popShow = function (popupElement) {
     });
 
     $('.dimmed').show();
-    popupElement.css({'display': 'block', 'visibility': 'hidden'})
+    popupElement.css({ 'display': 'block', 'visibility': 'hidden' })
 
     setTimeout(function () {
         popupElement.css('visibility', '');
@@ -1722,7 +1722,7 @@ commonJs.popShow = function (popupElement) {
             'margin-left': -(layerCont.outerWidth() / 2)
         })
 
-        $('body').css({'overflow': 'hidden'})
+        $('body').css({ 'overflow': 'hidden' })
     }, 50)
 }
 
@@ -1743,7 +1743,7 @@ commonJs.popClose = function (popupElement) {
         .find('.layerCont')
         .attr('tabindex', '');
 
-    $('body').css({'overflow': ''})
+    $('body').css({ 'overflow': '' })
 
     commonJs.allowBodyScroll(function () {
         if ($('body').children('.dimmed').is(':visible')) {
@@ -1941,7 +1941,7 @@ commonJs.initTab = function (tabToggle) {
             var targetTabCont = $('.tabCont' + targetTab);
 
             // 모든 탭 on 제거
-            $('.tabToggle li').removeClass('on'); 
+            $('.tabToggle li').removeClass('on');
             // 현재 클릭한 탭만 on 추가
             $(this).closest('li').addClass('on');
 
@@ -1980,7 +1980,7 @@ commonJs.initTab = function (tabToggle) {
             parentTabCont.show();
 
             var subTab = $(subTabTarget);
-            if (subTab.length) {                
+            if (subTab.length) {
                 var currentScroll = $(window).scrollTop(); // 현재 스크롤 위치
                 var targetOffset = subTab.offset().top;
 
@@ -2149,7 +2149,7 @@ commonJs.initSwipe = function (swipeEl) {
                         .siblings('li')
                         .removeClass('on');
                 },
-                destroyComplete: function () {}
+                destroyComplete: function () { }
             })
 
             _itm.data('swiper', mySlider);
@@ -2166,7 +2166,7 @@ commonJs.initSwipe = function (swipeEl) {
             //메인페이지 페이드형식 오토 슬라이드
             _itm
                 .find('.swipeCont')
-                .css({'position':'absolute'});
+                .css({ 'position': 'absolute' });
 
 
             var autoTimer = null;
@@ -2246,10 +2246,10 @@ commonJs.initSwipe = function (swipeEl) {
 
                     var delay = (isVideo)
                         ? slideLi
-                        .eq(idx)
-                        .find('.mainVideo video')
-                        .get(0)
-                        .duration * 1000
+                            .eq(idx)
+                            .find('.mainVideo video')
+                            .get(0)
+                            .duration * 1000
                         : 5000;
                     var videoNode = null;
                     if (autoTimer != null) {
@@ -2314,8 +2314,8 @@ commonJs.initSwipe = function (swipeEl) {
                 var sliderItems = document.querySelectorAll(".mainArea01 .swipeCont, .mainArea01 .swipeCont .swipeSlide");
                 var bodyWidth = document.body.clientWidth;
 
-                if(mainSwipe.offsetWidth !== bodyWidth){
-                    Array.prototype.forEach.call(sliderItems, function(item) {
+                if (mainSwipe.offsetWidth !== bodyWidth) {
+                    Array.prototype.forEach.call(sliderItems, function (item) {
                         item.style.width = bodyWidth + 'px';
                     })
                 }
@@ -2330,7 +2330,7 @@ commonJs.initSwipe = function (swipeEl) {
                 return false;
             })
 
-        } else if(_itm.closest('.mainArea01').length && _itm.closest('.palace').length) {
+        } else if (_itm.closest('.mainArea01').length && _itm.closest('.palace').length) {
 
             // josun palce 메인
             var mainData = _itm.data('swiper');
@@ -2356,7 +2356,7 @@ commonJs.initSwipe = function (swipeEl) {
                 controls: false,
                 paging: false,
                 speed: 850,
-                useMouse : false,
+                useMouse: false,
                 initComplete: function (e) {
                     btnAuto.on('click', function () {
                         if (!$(this).hasClass('btnPlay')) {
@@ -2423,10 +2423,10 @@ commonJs.initSwipe = function (swipeEl) {
 
                     var delay = (isVideo)
                         ? slideLi
-                        .eq(idx)
-                        .find('.mainVideo video')
-                        .get(0)
-                        .duration * 1000
+                            .eq(idx)
+                            .find('.mainVideo video')
+                            .get(0)
+                            .duration * 1000
                         : 4000;
                     var videoNode = null;
                     if (autoTimer != null) {
@@ -2640,67 +2640,67 @@ commonJs.initSwipe = function (swipeEl) {
 
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            } else if (_itm.hasClass('swipeGroup js-lounge-slide')) {
-                
-//              var item = $(item);
-//                var carouselOption = {};
-//                var slidesLength;
-//                if(!item.length){return}
-//
-//                slidesLength = $(".swiperGroup.js-lounge-slide .swiper-slide").length;
-//                                
-//                carouselOption = {
-//                      loop: true,
-//                      slidePerView: 2
-//                }
-//                
-                
-           _itm
-               .find('.swipeCont')
-               .css('position', 'absolute');
-           var mainInner = _itm.closest('.swipeWrapArea');
-           var swipeBtnFlVisible = (_itm.closest('.mainArea07').length)
-               ? true
-               : false;
-           var carouselOption = {};
-           var slidesLength;
-           var mySlider = _itm.touchSlider({
+        } else if (_itm.hasClass('swipeGroup js-lounge-slide')) {
 
-               btn_prev: wrapper.find('.btnPrev'),
-               btn_next: wrapper.find('.btnNext'),
+            //              var item = $(item);
+            //                var carouselOption = {};
+            //                var slidesLength;
+            //                if(!item.length){return}
+            //
+            //                slidesLength = $(".swiperGroup.js-lounge-slide .swiper-slide").length;
+            //                                
+            //                carouselOption = {
+            //                      loop: true,
+            //                      slidePerView: 2
+            //                }
+            //                
 
-               //loop: true,
-               //loopAdditionalSlides :1,
+            _itm
+                .find('.swipeCont')
+                .css('position', 'absolute');
+            var mainInner = _itm.closest('.swipeWrapArea');
+            var swipeBtnFlVisible = (_itm.closest('.mainArea07').length)
+                ? true
+                : false;
+            var carouselOption = {};
+            var slidesLength;
+            var mySlider = _itm.touchSlider({
 
-               controls: false,
-               paging: false,
-               view: 3,
+                btn_prev: wrapper.find('.btnPrev'),
+                btn_next: wrapper.find('.btnNext'),
 
-               speed: speed,
-               // autoplay: {
-               //     enable: true,
-               //     pauseHover: false,
-               //     addHoverTarget: '',
-               //     interval: 3000
-               // },
+                //loop: true,
+                //loopAdditionalSlides :1,
 
-                
-               // useMouse: (slidesLength <= 3)
-               //     ? false
-               //     : true,
-               slidesPerView : 3, // 동시에 보여줄 슬라이드 갯수
-//              spaceBetween : 30, // 슬라이드간 간격
-              slidesPerGroup : 1, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
-              //loopFillGroupWithBlank :true,
-             
-           })
- 
+                controls: false,
+                paging: false,
+                view: 3,
 
-           _itm.data('swiper', _itm.get(0));
+                speed: speed,
+                // autoplay: {
+                //     enable: true,
+                //     pauseHover: false,
+                //     addHoverTarget: '',
+                //     interval: 3000
+                // },
+
+
+                // useMouse: (slidesLength <= 3)
+                //     ? false
+                //     : true,
+                slidesPerView: 3, // 동시에 보여줄 슬라이드 갯수
+                //              spaceBetween : 30, // 슬라이드간 간격
+                slidesPerGroup: 1, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+                //loopFillGroupWithBlank :true,
+
+            })
+
+
+            _itm.data('swiper', _itm.get(0));
 
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        } 
-            else if (_itm.hasClass('auto')) {
+        }
+        else if (_itm.hasClass('auto')) {
             /**
              * 자동롤링 swipe
              * HURE2000M.html
@@ -2938,9 +2938,9 @@ commonJs.initSwipe = function (swipeEl) {
                                 .find('.btnSwipe.btnPrev')
                                 .show();
                         } else {
-                          mainInner
-                            .find('.btnSwipe')
-                            .show()
+                            mainInner
+                                .find('.btnSwipe')
+                                .show()
                         }
                     }
 
@@ -3150,7 +3150,7 @@ commonJs.initDesignScroll = function (scrollEl) {
             scrollWrap.wrap('<div class="designScroll"></div>');
         }
         scrollWrap.css(
-            {'margin-right': '-25px', 'overflow-y': 'scroll', 'width': '100%', 'padding-right': '40px', 'box-sizing': 'border-box'}
+            { 'margin-right': '-25px', 'overflow-y': 'scroll', 'width': '100%', 'padding-right': '40px', 'box-sizing': 'border-box' }
         );
 
         if (!scrollWrap.find('.customScrollBox').length) {
@@ -3173,13 +3173,13 @@ commonJs.initDesignScroll = function (scrollEl) {
                 scrollWrap
                     .closest('.tabCont')
                     .data('default', scrollWrap.closest('.tabCont').css('display'))
-                    .css({'display': 'block', 'visibility': 'hidden', 'height': '0'})
+                    .css({ 'display': 'block', 'visibility': 'hidden', 'height': '0' })
             }
             contParent.each(function () {
                 var _cp = $(this);
                 _cp
                     .data('default', _cp.css('display'))
-                    .css({'display': 'block', 'visibility': 'hidden', 'height': '0'})
+                    .css({ 'display': 'block', 'visibility': 'hidden', 'height': '0' })
             })
 
             contentH = scrollWrap
@@ -3211,11 +3211,11 @@ commonJs.initDesignScroll = function (scrollEl) {
             }
             contParent.each(function () {
                 if ($(this).closest('.toggleOn').length) {
-                    $(this).css({'visibility': '', 'height': ''})
+                    $(this).css({ 'visibility': '', 'height': '' })
                 } else {
 
                     $(this).css(
-                        {'display': $(this).data('default'), 'visibility': '', 'height': ''}
+                        { 'display': $(this).data('default'), 'visibility': '', 'height': '' }
                     )
                 }
             })
@@ -3241,13 +3241,13 @@ commonJs.initDesignScroll = function (scrollEl) {
                 .find('div.scrollbar-wrap')
                 .remove();
             scrollWrap.css(
-                {'margin-right': '', 'overflow-y': '', 'width': '', 'padding-right': '', 'box-sizing': ''}
+                { 'margin-right': '', 'overflow-y': '', 'width': '', 'padding-right': '', 'box-sizing': '' }
             );
             return;
         }
         $('.designScroll')
             .eq(idx)
-            .css({'height': screenH, 'width': '100%', 'overflow': 'hidden'})
+            .css({ 'height': screenH, 'width': '100%', 'overflow': 'hidden' })
 
         scrollWrap
             .css('width', '')
@@ -3349,11 +3349,11 @@ commonJs.setScrollTransitionBtn = function (topEl) {
                 .next()
                 .offset()
                 .top - $('.header')
-                .addClass('on')
-                .outerHeight();
+                    .addClass('on')
+                    .outerHeight();
             $('html, body').animate({
                 scrollTop: h
-            }, 800, ANIMATION_EASING, function () {})
+            }, 800, ANIMATION_EASING, function () { })
         })
 
     $(window)
@@ -3393,11 +3393,11 @@ commonJs.setWidthTranstionBtn = function (inner, openBtn, closeBtn, focus) {
         $(this).css('visibility', 'hidden');
         $(this)
             .siblings(inner)
-            .css({'overflow': 'hidden', 'display': 'block', 'width': 0})
+            .css({ 'overflow': 'hidden', 'display': 'block', 'width': 0 })
             .animate({
                 'width': innerW
             }, speed, function () {
-                $(this).css({'overflow': ''})
+                $(this).css({ 'overflow': '' })
                 $(this)
                     .find(focus)
                     .focus();
@@ -3434,7 +3434,7 @@ commonJs.setWidthTranstionBtn = function (inner, openBtn, closeBtn, focus) {
             .animate({
                 'width': openBtn.outerWidth()
             }, speed, function () {
-                $(this).css({'width': '', 'display': 'none'})
+                $(this).css({ 'width': '', 'display': 'none' })
                 openBtn.css('visibility', 'visible');
             })
     })
@@ -3505,7 +3505,7 @@ commonJs.initFloatingContainer = function (floatingEl) {
         }
         //start
         if (st < originalMarinTop - headerH) {
-            floatingEl.css({'margin-top': ''})
+            floatingEl.css({ 'margin-top': '' })
             return;
         }
         //end
@@ -3600,7 +3600,7 @@ commonJs.setParallax = function (parallaxContainer) {
             }
             var scene = new ScrollMagic
                 .Scene(
-                    {triggerElement: itm, offset: 0, triggerHook: '1', reverse: false}
+                    { triggerElement: itm, offset: 0, triggerHook: '1', reverse: false }
                 )
                 .setTween(tl)
                 .addTo(ctl);
@@ -3718,7 +3718,7 @@ commonJs.setRevArea = function (revArea) {
                 .removeAttr('style')
                 .addClass('opened')
                 .show();
-            revAreaEl.css({'margin-top': 210, 'z-index': 999999})
+            revAreaEl.css({ 'margin-top': 210, 'z-index': 999999 })
             $('.revArea')
                 .next('.dimmed')
                 .show();
@@ -3747,17 +3747,17 @@ commonJs.setRevArea = function (revArea) {
 
         $(this)
             .closest(revArea)
-            .css({'margin-top': 210, 'z-index': 999999})
+            .css({ 'margin-top': 210, 'z-index': 999999 })
 
         con.addClass('opened');
         con
             .show()
-            .css({'overflow': 'hidden', 'height': 0})
+            .css({ 'overflow': 'hidden', 'height': 0 })
             .stop()
             .animate({
                 height: h
             }, 800, ANIMATION_EASING, function () {
-                con.css({'overflow': '', 'height': ''})
+                con.css({ 'overflow': '', 'height': '' })
             })
     }
 
@@ -3811,10 +3811,10 @@ commonJs.setRevArea = function (revArea) {
             .removeClass('opened');
         $(this)
             .closest(revArea)
-            .css({'margin-top': '', 'z-index': ''});
+            .css({ 'margin-top': '', 'z-index': '' });
         $(this)
             .closest('.clearCont')
-            .css({'overflow': 'hidden'})
+            .css({ 'overflow': 'hidden' })
             .stop()
             .animate({
                 'height': 0,
@@ -3823,7 +3823,7 @@ commonJs.setRevArea = function (revArea) {
             }, 400, ANIMATION_EASING, function () {
                 $(this)
                     .closest('.clearCont')
-                    .css({'height': '', 'padding-top': '', 'padding-bottom': ''})
+                    .css({ 'height': '', 'padding-top': '', 'padding-bottom': '' })
                     .hide();
             })
     }
@@ -3894,11 +3894,11 @@ commonJs.setFixedBarArea = function (fixedArea) {
             }
 
             if (st >= (orgOffset - headerH)) {
-                itm.css({'position': 'fixed', 'z-index': 99, 'top': headerH})
+                itm.css({ 'position': 'fixed', 'z-index': 99, 'top': headerH })
                 itmNext.css('marginTop', itmBottom + itmH);
                 itm.css('marginBottom', 0);
             } else {
-                itm.css({'position': '', 'z-index': '', 'top': ''})
+                itm.css({ 'position': '', 'z-index': '', 'top': '' })
                 itmNext.css('marginTop', '');
                 itm.css('marginBottom', '');
             }
@@ -4052,7 +4052,7 @@ commonJs.setDataParallax = function () {
             })
 
         new ScrollMagic
-            .Scene({triggerElement: this, triggerHook: '1', reverse: true})
+            .Scene({ triggerElement: this, triggerHook: '1', reverse: true })
             .setTween(tl)
             .addTo(ctl);
     })
@@ -4070,7 +4070,7 @@ commonJs.setDataParallax = function () {
             })
 
         new ScrollMagic
-            .Scene({triggerElement: this, triggerHook: '1'})
+            .Scene({ triggerElement: this, triggerHook: '1' })
             .setTween(tl)
             .addTo(ctl);
     })
@@ -4087,7 +4087,7 @@ commonJs.setDataParallax = function () {
             })
 
         new ScrollMagic
-            .Scene({triggerElement: this, triggerHook: '1'})
+            .Scene({ triggerElement: this, triggerHook: '1' })
             .setTween(tl)
             .addTo(ctl);
     })
@@ -4104,7 +4104,7 @@ commonJs.setDataParallax = function () {
             })
 
         new ScrollMagic
-            .Scene({triggerElement: this, triggerHook: '1'})
+            .Scene({ triggerElement: this, triggerHook: '1' })
             .setTween(tl)
             .addTo(ctl);
     })
@@ -4198,21 +4198,21 @@ commonJs.setDiningLoginFrm = function (loginFrmEl) {
                 //객실 show
                 $('.loginFrm.roomchk').show();
                 $('.loginFrm.dinigchk').hide();
-                $('.loginFrm.activitychk').hide();                
+                $('.loginFrm.activitychk').hide();
                 $('.roomactchk').show();
                 $('.drLoginCode').removeClass("ok");
-            }else if (idx == 2) {
+            } else if (idx == 2) {
                 //다이닝 show
                 $('.loginFrm.roomchk').hide();
                 $('.loginFrm.dinigchk').show();
-                $('.loginFrm.activitychk').hide();                
+                $('.loginFrm.activitychk').hide();
                 $('.roomactchk').hide();
-                $('.drLoginCode').removeClass("ok");                
+                $('.drLoginCode').removeClass("ok");
             } else {
                 //액티비티 show
                 $('.loginFrm.roomchk').hide();
                 $('.loginFrm.dinigchk').hide();
-                $('.loginFrm.activitychk').show();                
+                $('.loginFrm.activitychk').show();
                 $('.roomactchk').show();
                 $('.drLoginCode').removeClass("ok");
             }
@@ -4306,8 +4306,8 @@ var dUtils = {
         var varYear = varDate.getFullYear();
         var varMonth = (varDate.getMonth() + 1) < 10
             ? '0' + (
-            varDate.getMonth() + 1
-        )
+                varDate.getMonth() + 1
+            )
             : (varDate.getMonth() + 1);
         var varDay = varDate.getDate() < 10
             ? '0' + varDate.getDate()
@@ -4363,18 +4363,18 @@ var dUtils = {
      * @param date
      * @returns (string)
      */
-    	getDateToDay : function (dateStr) {
-/*		var date = new Date(dateStr.replace(/\./gi,"-"));*/
-		var week = ['일', '월', '화', '수', '목', '금', '토'];
+    getDateToDay: function (dateStr) {
+        /*		var date = new Date(dateStr.replace(/\./gi,"-"));*/
+        var week = ['일', '월', '화', '수', '목', '금', '토'];
 
         var [year, month, day] = dateStr.match(/\d+/g);
 
         // 현지 시간으로 생성
         var date = new Date(year, month - 1, day);
 
-		var dayOfWeek = week[date.getDay()];
-		return dayOfWeek;
-	},
+        var dayOfWeek = week[date.getDay()];
+        return dayOfWeek;
+    },
 
     /**
      * 소숫점 지정자리 반올림 (값, 자릿수)
@@ -4426,7 +4426,7 @@ function Jessture(target) {
         var endX = 0;
         var endY = 0;
         e.preventDefault();
-        if (e.type != 'mousemove') {}
+        if (e.type != 'mousemove') { }
     });
     target.on('touchend , mouseup', function (e) {
         var endX = 0;
@@ -4481,38 +4481,38 @@ function Jessture(target) {
  */
 function videoControlsToggle(control) {
 
-  var PLAY_BTN_CLASS = "btn-toggle--play",
-    SOUND_BTN_CLASS = "btn-toggle--sound",
-    ON_CLASS = "is-on",
-    OFF_CLASS = "is-off";
+    var PLAY_BTN_CLASS = "btn-toggle--play",
+        SOUND_BTN_CLASS = "btn-toggle--sound",
+        ON_CLASS = "is-on",
+        OFF_CLASS = "is-off";
 
-  var videoEl = document.querySelector(".mainVideo video");
-  var videoCon = document.querySelector(".video-controls");
+    var videoEl = document.querySelector(".mainVideo video");
+    var videoCon = document.querySelector(".video-controls");
 
-  var btnPlay = videoCon.querySelector("." + PLAY_BTN_CLASS);
-  var btnMute = videoCon.querySelector("." + SOUND_BTN_CLASS);
+    var btnPlay = videoCon.querySelector("." + PLAY_BTN_CLASS);
+    var btnMute = videoCon.querySelector("." + SOUND_BTN_CLASS);
 
-  var videoMuted = videoEl.muted;
-  var videoPaused = videoEl.paused;
+    var videoMuted = videoEl.muted;
+    var videoPaused = videoEl.paused;
 
-  if (control === "muted") {
+    if (control === "muted") {
 
-    if(videoMuted) {
-      btnMute.className = SOUND_BTN_CLASS + " " + ON_CLASS;
-      videoEl.muted = false;
-    } else{
-      btnMute.className = SOUND_BTN_CLASS + " " + OFF_CLASS;
-      videoEl.muted = true;
+        if (videoMuted) {
+            btnMute.className = SOUND_BTN_CLASS + " " + ON_CLASS;
+            videoEl.muted = false;
+        } else {
+            btnMute.className = SOUND_BTN_CLASS + " " + OFF_CLASS;
+            videoEl.muted = true;
+        }
+
+    } else if (control === "paused") {
+
+        if (!videoPaused) {
+            btnPlay.className = PLAY_BTN_CLASS + " " + OFF_CLASS;
+            videoEl.pause();
+        } else {
+            btnPlay.className = PLAY_BTN_CLASS + " " + ON_CLASS;
+            videoEl.play();
+        }
     }
-
-  } else if ( control === "paused" ) {
-
-    if(!videoPaused) {
-      btnPlay.className = PLAY_BTN_CLASS + " " + OFF_CLASS;
-      videoEl.pause();
-    } else {
-      btnPlay.className = PLAY_BTN_CLASS + " " + ON_CLASS;
-      videoEl.play();
-    }
-  }
 }

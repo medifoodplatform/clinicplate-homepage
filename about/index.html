@@ -56,9 +56,66 @@
             }, 100)
         }
         function fncChangeLang(changeLang) {
-            let currentLang = 'ko';
-            $(location).attr("href", "/intro.do?locale=" + changeLang);
+            // 쿠키에 언어 설정 저장 (30일간 유지)
+            document.cookie = "locale=" + changeLang + "; path=/; max-age=" + (30 * 24 * 60 * 60);
+
+            // 언어 선택 드롭다운 즉시 업데이트
+            const langInput = document.querySelector('.dropdown_value input[role="combobox"]');
+            if (langInput) {
+                const displayValue = changeLang === 'en' ? 'EN' : 'KR';
+                langInput.value = displayValue;
+            }
+
+            // 현재 페이지 URL에서 언어 파라미터 업데이트
+            let currentUrl = window.location.href;
+            let newUrl;
+
+            if (currentUrl.includes('locale=')) {
+                newUrl = currentUrl.replace(/locale=[^&]*/, 'locale=' + changeLang);
+            } else {
+                newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + 'locale=' + changeLang;
+            }
+
+            // 페이지 새로고침으로 언어 변경 적용
+            window.location.href = newUrl;
         }
+
+        // 페이지 로드 시 언어 설정 확인
+        function getCurrentLanguage() {
+            // URL 파라미터에서 언어 확인
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('locale');
+
+            // URL에 없으면 쿠키에서 확인
+            if (!lang) {
+                const cookies = document.cookie.split(';');
+                for (let cookie of cookies) {
+                    const [name, value] = cookie.trim().split('=');
+                    if (name === 'locale') {
+                        lang = value;
+                        break;
+                    }
+                }
+            }
+
+            // 기본값은 한국어
+            return lang || 'ko';
+        }
+
+        // 페이지 로드 시 언어별 리소스 적용
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentLang = getCurrentLanguage();
+
+            // HTML lang 속성 설정
+            document.documentElement.lang = currentLang;
+
+            // 언어 선택 드롭다운 초기화
+            const langInput = document.querySelector('.dropdown_value input[role="combobox"]');
+            if (langInput) {
+                const displayValue = currentLang === 'en' ? 'EN' : 'KR';
+                langInput.value = displayValue;
+            }
+        });
     </script>
     <!-- 네이버 사이트 연관 채널 Code -->
     <script type="application/ld+json">

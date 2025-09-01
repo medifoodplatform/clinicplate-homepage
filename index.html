@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="naver-site-verification" content="7cc31c414eda7a3ea7b7a0bbb9c0a5c624370a87" />
-  <title>클리닉 플레이트</title>
+  <title data-i18n="main_title">클리닉 플레이트</title>
   <meta name="keywords" content="플레이트 의원, 클리닉 플레이트, VVIP 검진, 프리미엄 헬스케어, 강남내과, 맞춤형 건강관리, 정밀검진, 푸드테라피" />
   <meta name="description"
     content="플레이트 의원은 20여 년의 임상 경험과 최신 의학 연구를 기반으로, 세포 단위 정밀검진과 맞춤형 푸드테라피를 통해 VVIP 헬스케어 서비스를 제공합니다. 질병 예방부터 건강 관리, 회복까지 아우르는 새로운 의료 문화를 제안합니다." />
@@ -35,6 +35,9 @@
   <!-- 메인, GNB 스크립트 -->
   <script type="text/javascript" src="./static/home/js/ko/pc/selectbox.js"></script>
   <script type="text/javascript" src="./static/home/js/ko/pc/swiper.min.js"></script>
+  <!-- 국제화 스크립트 -->
+  <script type="text/javascript" src="./static/home/js/ko/pc/i18n.js"></script>
+  <script type="text/javascript" src="./static/home/js/ko/pc/translations.js"></script>
   <script type="text/javascript" src="./static/home/js/homec619.js?v=1.0"></script>
   <script type="text/javascript" src="./static/home/bluewaves/js/pc/bw_contents.js"></script>
   <!-- Google Tag Manager -->
@@ -70,9 +73,77 @@
       }, 100);
     }
     function fncChangeLang(changeLang) {
-      let currentLang = "ko";
-      $(location).attr("href", "/?locale=" + changeLang);
+      // 쿠키에 언어 설정 저장 (30일간 유지)
+      document.cookie = "locale=" + changeLang + "; path=/; max-age=" + (30 * 24 * 60 * 60);
+
+      // 언어 선택 드롭다운 즉시 업데이트
+      const langInput = document.querySelector('.dropdown_value input[role="combobox"]');
+      if (langInput) {
+        const displayValue = changeLang === 'en' ? 'EN' : 'KR';
+        langInput.value = displayValue;
+      }
+
+      // 현재 페이지 URL에서 언어 파라미터 업데이트
+      let currentUrl = window.location.href;
+      let newUrl;
+
+      if (currentUrl.includes('locale=')) {
+        newUrl = currentUrl.replace(/locale=[^&]*/, 'locale=' + changeLang);
+      } else {
+        newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + 'locale=' + changeLang;
+      }
+
+      // 페이지 새로고침으로 언어 변경 적용
+      window.location.href = newUrl;
     }
+
+    // 페이지 로드 시 언어 설정 확인
+    function getCurrentLanguage() {
+      // URL 파라미터에서 언어 확인
+      const urlParams = new URLSearchParams(window.location.search);
+      let lang = urlParams.get('locale');
+
+      // URL에 없으면 쿠키에서 확인
+      if (!lang) {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+          const [name, value] = cookie.trim().split('=');
+          if (name === 'locale') {
+            lang = value;
+            break;
+          }
+        }
+      }
+
+      // 기본값은 한국어
+      return lang || 'ko';
+    }
+
+    // 페이지 로드 시 언어별 리소스 적용
+    document.addEventListener('DOMContentLoaded', function () {
+      const currentLang = getCurrentLanguage();
+
+      // HTML lang 속성 설정
+      document.documentElement.lang = currentLang;
+
+      // 언어 선택 드롭다운 초기화
+      const langInput = document.querySelector('.dropdown_value input[role="combobox"]');
+      if (langInput) {
+        const displayValue = currentLang === 'en' ? 'EN' : 'KR';
+        langInput.value = displayValue;
+      }
+
+      // 언어별 CSS 파일 로드
+      const existingCss = document.querySelector('link[href*="/ko/pc/"]');
+      if (existingCss && currentLang !== 'ko') {
+        const newCssHref = existingCss.href.replace('/ko/pc/', '/en/pc/');
+        const newCssLink = document.createElement('link');
+        newCssLink.rel = 'stylesheet';
+        newCssLink.type = 'text/css';
+        newCssLink.href = newCssHref;
+        document.head.appendChild(newCssLink);
+      }
+    });
     // 이미지 로딩 개선
     document.addEventListener('DOMContentLoaded', function () {
       const images = document.querySelectorAll('img');

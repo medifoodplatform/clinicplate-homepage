@@ -1,16 +1,16 @@
-(function($, window) {
+(function ($, window) {
     // 가로 스크롤 생성 여부 체크
-    $.fn.hasHorizontalScrollBar = function() {
+    $.fn.hasHorizontalScrollBar = function () {
         return this.get(0) ? this.get(0).scrollWidth - 3 >= this.innerWidth() : false;
     }
 
     // 세로 스크롤 생성 여부 체크
-    $.fn.hasVerticalScrollBar = function() {
+    $.fn.hasVerticalScrollBar = function () {
         return this.get(0) ? this.get(0).scrollHeight - 3 >= this.innerHeight() : false;
     }
 
     // 개발연동시 기본 셀렉트 변경후 디자인 셀렉트 반영
-    $.fn.seletMenuUpdate = function() {
+    $.fn.seletMenuUpdate = function () {
         var parent = this.parent();
         parent.attr('first', true);
         parent.find(".ui-menu").off("mousewheel DOMMouseScroll");
@@ -20,10 +20,11 @@
         this.customSelect("refresh");
     }
 
-    $(function() {
+    $(function () {
         // Support: jQuery <1.8
         if (!$.fn.addBack) {
-            $.fn.addBack = function(selector) {
+            S
+            $.fn.addBack = function (selector) {
                 return this.add(selector == null ?
                     this.prevObject : this.prevObject.filter(selector)
                 );
@@ -34,14 +35,14 @@
 
         var t = $;
         var selectMenu = {
-            init: function() {
+            init: function () {
 
                 var agent = navigator.userAgent.toLowerCase();
                 var ieTest = ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)) ? true : false;
                 // var ieTest = false;
                 var customSelect = {}
 
-                customSelect._setAria = function(item) {
+                customSelect._setAria = function (item) {
                     var id = this.menuItems.eq(item.index).attr("id");
                     var ariaObj = {
                         "aria-labelledby": id
@@ -57,7 +58,7 @@
                 }
 
                 customSelect._buttonEvents = {}
-                customSelect._buttonEvents.click = function(event) {
+                customSelect._buttonEvents.click = function (event) {
                     //ie Accessibility
                     var button = $(this.button);
                     if (!button.data('buttonObj')) {
@@ -70,17 +71,17 @@
                     }
 
                     var obj = button.data('buttonObj');
-                    
+
                     if (!obj.opend) {
                         //open
                         obj.opend = true;
-                        obj.timer = setTimeout(function() {
+                        obj.timer = setTimeout(function () {
                             obj.opend = false;
                         }, 1000)
 
                         this._setSelection();
                         this._toggle(event);
-                        
+
                         var height = this.menuWrap.outerHeight();
                         var direction = this.element.attr('data-direction') === "up" ? "up" : "down";
                         var topPos = direction === 'up' ? height : -height;
@@ -91,8 +92,8 @@
                             menuWrap.css({
                                 'overflow-y': 'hidden'
                             })
-                           
-                            if(direction ==='up'){
+
+                            if (direction === 'up') {
                                 menuWrap.css({
                                     'top': 0
                                 }).stop().animate({
@@ -105,14 +106,14 @@
                                     height: height
                                 }, 250);
 
-                            }else{
+                            } else {
                                 menuWrap.find('.tweenDiv').css({
                                     'marginTop': topPos
                                 }).stop().animate({
                                     marginTop: 0
                                 }, 250);
                             }
-                            
+
                         } else {
 
                             //close 
@@ -126,7 +127,7 @@
 
                                 menuWrap.find('.tweenDiv').stop().animate({
                                     height: 0
-                                }, 150 , function(){
+                                }, 150, function () {
                                     menuWrap.removeAttr('style');
                                     menuWrap.find('.tweenDiv').removeAttr('style');
                                 });
@@ -145,12 +146,12 @@
                                 });
                             }
                         }
-                        
+
                     }
                     //ie Accessibility
                 }
 
-                customSelect._drawButton = function() {
+                customSelect._drawButton = function () {
                     // 추가 : 셀렉트 박스 메세지
                     if (this.element.attr('data-msg')) {
                         this.element.prepend('<option value="" hidden selected>' + this.element.attr('data-msg') + '</option>');
@@ -175,7 +176,7 @@
                         this.buttonItem = this._renderButtonItem(s).appendTo(this.button),
                         this.options.width !== !1 && this._resizeButton(),
                         this._on(this.button, this._buttonEvents),
-                        this.button.one("focusin", function() {
+                        this.button.one("focusin", function () {
                             i._rendered || i._refreshMenu()
                         })
 
@@ -185,13 +186,13 @@
                 }
 
                 //option > 텍스트에 구분자를 지정하여 <span 태그로 래핑 
-                customSelect._fnMultiTxt = function(label, clNm) {
+                customSelect._fnMultiTxt = function (label, clNm) {
                     var optMultiTxt = this.element.attr('data-multiText');
                     var textArr = (optMultiTxt === undefined) ? [label] : label.split(optMultiTxt);
                     var classArr = (clNm === undefined) ? [] : clNm.split(' ');
                     var htmlText = "";
                     if ($(textArr).length > 1) {
-                        $(textArr).each(function(idx) {
+                        $(textArr).each(function (idx) {
                             cls = (classArr[idx] !== undefined) ? classArr[idx] : '';
                             htmlText += '<span' + ((classArr.length !== 0) ? ' class="' + cls + '"' : '') + '>' + textArr[idx] + '</span>';
                         });
@@ -202,7 +203,7 @@
                 }
 
                 // list render
-                customSelect._renderItem = function(ul, item) {
+                customSelect._renderItem = function (ul, item) {
                     var li = $("<li>");
 
                     // .ui-menu-item > 텍스트 구분자 태그 적용
@@ -226,9 +227,9 @@
                 }
 
 
-                customSelect._drawMenu = function() {
+                customSelect._drawMenu = function () {
                     var that = this;
-                    
+
                     // Create menu
                     this.menu = $("<ul>", {
                         "aria-hidden": "true",
@@ -250,7 +251,7 @@
                                 "ui-menu": "ui-corner-bottom"
                             },
                             role: "listbox",
-                            select: function(event, ui) {
+                            select: function (event, ui) {
                                 event.preventDefault();
 
                                 // Support: IE8
@@ -260,7 +261,7 @@
                                 that._setSelection();
                                 that._select(ui.item.data("ui-selectmenu-item"), event);
                             },
-                            focus: function(event, ui) {
+                            focus: function (event, ui) {
                                 var item = ui.item.data("ui-selectmenu-item");
 
                                 // Prevent inital focus from firing and check if its a newly focused item
@@ -287,18 +288,18 @@
                     this.menuInstance._off(this.menu, "mouseleave");
 
                     // Cancel the menu's collapseAll on document click
-                    this.menuInstance._closeOnDocumentClick = function() {
+                    this.menuInstance._closeOnDocumentClick = function () {
                         return false;
                     };
 
                     // Selects often contain empty items, but never contain dividers
-                    this.menuInstance._isDivider = function() {
+                    this.menuInstance._isDivider = function () {
                         return false;
                     };
                 }
 
 
-                customSelect.close = function(event) {
+                customSelect.close = function (event) {
                     if (!this.isOpen) {
                         return;
                     }
@@ -327,7 +328,7 @@
                 $.widget("custom.customSelect", $.ui.selectmenu, customSelect);
 
                 var customMenu = {}
-                customMenu.refresh = function() {
+                customMenu.refresh = function () {
                     var menus, items, newSubmenus, newItems, newWrappers,
                         that = this,
                         icon = this.options.icons.submenu,
@@ -343,7 +344,7 @@
                             "aria-hidden": "true",
                             "aria-expanded": "false"
                         })
-                        .each(function() {
+                        .each(function () {
                             var menu = $(this),
                                 item = menu.prev(),
                                 submenuCaret = $("<span>").data("ui-menu-submenu-caret", true);
@@ -360,14 +361,14 @@
                     menus = submenus.add(this.element);
                     items = menus.find(this.options.items);
                     // Initialize menu-items containing spaces and/or dashes only as dividers
-                    items.not(".ui-menu-item").each(function() {
+                    items.not(".ui-menu-item").each(function () {
                         var item = $(this);
                         if (that._isDivider(item)) {
                             that._addClass(item, "ui-menu-divider", "ui-widget-content");
                         }
 
                         //ie Accessibility
-                        item.on('click', function() {
+                        item.on('click', function () {
                             that.focus('focus', item)
                         })
                         //ie Accessibility
@@ -395,7 +396,7 @@
                 }
 
 
-                customMenu.focus = function(event, item) {
+                customMenu.focus = function (event, item) {
                     var nested, focused, activeParent;
                     this.blur(event, event && event.type === "focus");
 
@@ -425,7 +426,7 @@
                     if (event && event.type === "keydown") {
                         this._close();
                     } else {
-                        this.timer = this._delay(function() {
+                        this.timer = this._delay(function () {
                             this._close();
                         }, this.delay);
                     }
@@ -445,7 +446,7 @@
 
             },
 
-            update: function(target) {
+            update: function (target) {
                 var select = target;
                 if (select.data('selectBox')) {
                     select.customSelect("refresh");
@@ -454,7 +455,7 @@
                     select.parent().attr('first', true);
                     var opt = {
                         appendTo: select.parent(),
-                        select: function(event, ui) {
+                        select: function (event, ui) {
                             select.trigger('select');
                             var list = select.parent().find('.ui-menu-item');
                             list.find('a').removeAttr('aria-selected');
@@ -471,13 +472,13 @@
                             }
 
                         },
-                        close: function() {
+                        close: function () {
                             select.trigger('close');
                         },
-                        change: function(event, ui) {
+                        change: function (event, ui) {
                             select.trigger('change');
                         },
-                        open: function() {
+                        open: function () {
                             var parent = select.parent();
                             var uiMenu = parent.find(".ui-menu");
 
@@ -491,7 +492,7 @@
                             uiMenu.css({
                                 'width': ''
                             });
-                            
+
 
                             if (uiMenu.hasVerticalScrollBar() && parent.attr('first') == 'true') {
                                 parent.attr('first', false);
@@ -517,7 +518,7 @@
                                 var barH = bar.height();
                                 var n = bgH - barH;
 
-                                uiMenu.on("mousewheel DOMMouseScroll", function(e, delta) {
+                                uiMenu.on("mousewheel DOMMouseScroll", function (e, delta) {
                                     e.stopPropagation();
 
                                     var E = e.originalEvent;
@@ -546,7 +547,7 @@
                                     e.preventDefault();
                                 });
 
-                                uiMenu.on('scroll', function() {
+                                uiMenu.on('scroll', function () {
                                     var scrollTop = ($(this).scrollTop() / cScrollH) * n;
                                     bar.css({
                                         'top': scrollTop + 'px'
@@ -555,7 +556,7 @@
 
                                 var y1 = 0;
 
-                                bar.on('mousedown', function(e) {
+                                bar.on('mousedown', function (e) {
                                     y1 = e.pageY - parseInt(bar.css('top'));
                                     $(document).on('mousemove', moveHandler);
                                     $(document).on('mouseleave , mouseup', mouseLeave);
@@ -599,14 +600,14 @@
                     }
                     select.customSelect('menuWidget').css('max-height', maxHeight);
 
-                    select.one('close', function() {
+                    select.one('close', function () {
                         select.parent().find('.ui-menu-item').eq(select[0].selectedIndex).find('a').attr('aria-selected', true);
                     });
 
-                    select.one('open', function() {
+                    select.one('open', function () {
                         var a = select.parent().find('.ui-menu-item a');
                         a.removeAttr('tabindex');
-                        a.on('click', function() {})
+                        a.on('click', function () { })
                     })
 
                 }
@@ -616,9 +617,9 @@
 
 
         // 셀렉트 생성
-        $(function() {
+        $(function () {
             selectMenu.init();
-            $(document).find('.selectWrap').each(function() {
+            $(document).find('.selectWrap').each(function () {
                 selectMenu.update($(this).find('select'));
             });
 
